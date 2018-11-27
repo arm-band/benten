@@ -10,7 +10,7 @@ id = filename.slice(filename.lastIndexOf("\\") + 1).replace(/\.ejs/g, ''); //PCå
 
 <div class="reveal">
     <div class="slides">
-        <section data-markdown="./content/slide.md" data-separator="^\r\n---\r\n$" data-separator-vertical="^\r\n>>>\r\n$">
+        <section data-markdown="./content/slide.md" data-separator="<%- separator %>" data-separator-vertical="<%- separatorVertical %>">
         </section>
     </div>
 </div>

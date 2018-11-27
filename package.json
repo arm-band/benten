@@ -1,6 +1,6 @@
 {
     "name": "benten",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "description": "自分用のスライド制作用テンプレートです。",
     "main": "gulpfile.js",
     "scripts": {
