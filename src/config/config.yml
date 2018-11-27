@@ -1,0 +1,4 @@
+sitename: "Benten"
+description: "gulpとEJSに対応したスライド用テンプレート"
+mode: "slide"
+css: "index"

@@ -1,40 +1,38 @@
 <%
-var variables = variables;
 id = filename.slice(filename.lastIndexOf("\\") + 1).replace(/\.ejs/g, ''); //PC内の絶対パスで最後の\の位置+1(=パスなしファイル名)から末尾までの文字列を切り取り、".ejs"の4文字を取り除く=拡張子なしのファイル名
-var commonVar = commonVar;
-%><%- include("util/_headset", { variables, id }) %>
+%>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<%- include("partial/_head", { variables, id, commonVar, metaTitle, metaDescription, metaOgpimage }) %>
+<%- include("partial/_head", { config, id, commonVar }) %>
 </head>
 <body>
 
 <div class="reveal">
-	<div class="slides">
-		<section data-markdown="./content/slide.md" data-separator="^\r\n---\r\n$" data-separator-vertical="^\r\n>>>\r\n$">
-		</section>
-	</div>
+    <div class="slides">
+        <section data-markdown="./content/slide.md" data-separator="^\r\n---\r\n$" data-separator-vertical="^\r\n>>>\r\n$">
+        </section>
+    </div>
 </div>
 
 <script src="lib/js/head.min.js"></script>
 <script src="js/reveal.js"></script>
 <script>
 Reveal.initialize({
-	controls: true,
-	progress: true,
-	history: true,
-	center: true,
-	transition: 'slide', // none/fade/slide/convex/concave/zoom
-	// Optional reveal.js plugins
-	dependencies: [
-		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-		{ src: 'plugin/zoom-js/zoom.js', async: true },
-		{ src: 'plugin/notes/notes.js', async: true }
-	]
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+    // Optional reveal.js plugins
+    dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+        { src: 'plugin/notes/notes.js', async: true }
+    ]
 });
 </script>
 </body>

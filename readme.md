@@ -17,7 +17,7 @@ Scss, ejs, gulp使用。
 - node.js(7.2.1以上)
     - npm: 以下のライブラリを使用します(主なもののみ記載)
         - browser-sync: 2.18.13
-        - gulp: 3.9.1
+        - gulp: 4.0.0
         - gulp-ejs: 3.0.1
         - gulp-sass: 3.1.0
         - gulp-autoprefixer: 4.1.0
@@ -28,14 +28,11 @@ Scss, ejs, gulp使用。
 
 ### Using
 
-1. `git clone <REPOSITORY_TEMPLATE_URL.git>`でリポジトリのクローンを作成
-2. リポジトリ名でディレクトリが作成されるので、ディレクトリ名をプロジェクト名に変更
-3. `git clone`するとリモートリポジトリがテンプレート元のパスのままなので、変更する
-    1. `git remote rm origin <REPOSITORY_TEMPLATE_URL.git>`で現在のリモートリポジトリを削除
-    2. `git remote add origin <REPOSITORY_PROJECT_URL.git>`でプロジェクトのリモートリポジトリを追加
-4. `npm i -D`(`npm install --save-dev`のショートカット)で必要なプラグインを揃える
-5. `npm run benten`(`npm run proinit`でも良い)で初期設定を行う
-6. `gulp`で実行。browser-syncにより、既定のブラウザでページを表示します
+1. `git clone https://github.com/arm-band/benten.git`、またはBentenのGithubリポジトリからダウンロード
+2. `npm i -D`(または`npm install --save-dev`)
+3. `npm start`(`npm i -D`したファイルの再配置+初期設定画面生成・表示+初期設定完了後、`gulp init`実行)
+    - このコマンドで生成したディレクトリやpackage-lock.json等は`npm run biwa`(琵琶)で削除できます
+4. 2回目以降は`npm test`でプレビューを実行
 
 ## Functions1
 
@@ -48,63 +45,33 @@ gulpで処理されるもの
         - minifyされたものを生成
     - 自動でプレフィックスを付与
         - 基本最新2バージョン
-        - `iOS >= 8.1`
-        - `Android >= 4.4`
-- jsの圧縮(`/src/js/*.js`→`/dist/js/*.min.js`)
-    - 自動生成
-        - 1つのファイルにminify
+        - `iOS >= 10.0`
+        - `Android >= 5.0`
 - 画像の圧縮(`/src/img/*`→`/dist/img/*`)
     - 自動生成
 
-## Functions2
-
-テンプレートが用意している機能
-
-- Now Loading
-- アイキャッチ(高さ100vh, 背景fixed) ※画像は適宜用意
-- ページトップへ戻る
-- `src/ejs/news/news.json`による新着情報一覧の一元管理(トップページ: `index.ejs`と新着情報一覧: `news.ejs`の2箇所で使用)
-
-## Futures
-
-ejsの使い方をもっとしっかりしていきたい。
-
-- 特にパンくずはテストの為に追加したので柔軟性に欠ける
-
-<del>どうせならばFont Awesomeも混ぜれば良かった。</del>
-
 ## Settings
 
-- jsonファイル
-    - `variables.json`
-        - `commons`:
-            - `sitename`: サイト名。タイトルタグやトップページのアイキャッチ、ヘッダのブランド、フッタのコピーライトなど各所に使われます
-            - `year`: 年数。フッタのコピーライトで使います
-            - `author`: 作者名。フッタのコピーライトで使います
-            - `mode`: スライドとして使用するか、pdfとして印刷するかのモード切替です(下記2択)
-                - `slide`: `print/pdf.css`を読み込まず、スライドとして使用します
-                - `print`: `print/pdf.css`を読み込み、pdf印刷用とします
-            - `ogpurl`: Twitterカード出力時のサイトURLを指定します
-            - `ogpimage`: Twitterカード出力時の画像を指定します
-            - `twitteraccount`: Twitterカード出力時のTwitterアカウントを指定します(@マーク抜き)
-        - `color`:
-            - `main`: メインカラー。アドレスバーの色を指定するテーマカラーで使います
-        - `param`:
-            - キー名はファイル名と合わせること
-                - `title`: ページ名
-                - `entitle`: 英語のページ名
-                - `css`: 読み込むcssファイルのファイル名。拡張子不要
-                - `js`: 読み込むjsファイルのファイル名。拡張子不要
-                - `description`: `<meta description="">`に記述される説明
-                - `ogpimage`: Twitterカード出力時の画像を指定します
-    - `commonvar.json`
-        - 色、ナビゲーションバーの高さなど、基本的な情報をjson形式で記述
-        - このjsonからscssの各所で使用している変数の元となる`/src/base/_var.scss`が生成される
-        - ※既定で記述されているものはscssやejsで使用しているため、消さないこと
-            - `main-color`: scssの他、`/src/ejs/partial/head.ejs`の`meta`タグ、`theme-color`属性の指定で使用
+- `config.yml`
+    - `sitename`: スライド名。titleタグに使います。
+    - `description`: `<meta description="">`に記述される説明
+    - `mode`: スライドとして使用するか、pdfとして印刷するかのモード切替です(下記2択)
+        - `slide`: `print/pdf.css`を読み込まず、スライドとして使用します
+        - `print`: `print/pdf.css`を読み込み、pdf印刷用とします
+    - `css`: 読み込むcssファイルのファイル名。拡張子不要
+- `commonvar.yml`
+    - 色、ナビゲーションバーの高さなど、基本的な情報をjson形式で記述
+    - このjsonからscssの各所で使用している変数の元となる`/src/base/_var.scss`が生成される
+    - ※既定で記述されているものはscssやejsで使用しているため、消さないこと
+        - `main-color`: scssの他、`/src/ejs/partial/head.ejs`の`meta`タグ、`theme-color`属性の指定で使用
 
 ## Release Notes
 
+- 2018/11/27 ver.4.0.0
+    - gulpのバージョンを3.9.1から4へアップデート
+    - npmでダウンロードするパッケージを整理
+    - 設定ファイルをjsonからymlに変更
+    - 全体を整理
 - 2018/10/10 ver.3.0.1
     - npm scriptsで`revearl.js/lib/font`の中身を上手くコピーできていなかった不具合を解消
 - 2018/7/29 ver.3.0.0
