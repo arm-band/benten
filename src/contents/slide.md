@@ -14,8 +14,8 @@
 - HN: アルム＝バンド
     - SNS等
         <ul class="fa-ul no_ls block">
-            <li><i class="fa fa-twitter fa-li" aria-hidden="true"></i> [@Bredtn_1et](https://twitter.com/Bredtn_1et)</li>
-            <li><i class="fa fa-github fa-li" aria-hidden="true"></i> [arm\-band](https://github.com/arm-band)</li>
+            <li><i class="fa fa-twitter fa-li" aria-hidden="true"></i><a href="https://twitter.com/Bredtn_1et" target="_blank">@Bredtn_1et</a></li>
+            <li><i class="fa fa-github fa-li" aria-hidden="true"></i><a href="https://github.com/arm-band" target="_blank">arm-band</a></li>
         </ul>
 
 ---
