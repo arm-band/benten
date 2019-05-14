@@ -24,19 +24,26 @@
     h3 {
         margin-top: 1rem;
     }
-    pre, code {
-        background-color: $main-color2;
+    code {
+        font-style: italic;
     }
-    img {
-        max: {
-            width: 90%;
-            height: 90%;
+    pre code {
+        font-style: normal;
+    }
+    .slides {
+        section {
+            &>img {
+                max: {
+                    width: 80%;
+                    height: 80%;
+                }
+            }
         }
     }
     //画像の調整
     #eyecatch {
-    width: 50rem;
-    height: auto;
+        width: 50rem;
+        height: auto;
     }
     .profile_icon, .portforio {
         float: left;
@@ -50,6 +57,9 @@
     //font awesome
     .fa-fw {
         color: $main-color;
+        &.fa-times {
+            color: crimson;
+        }
     }
     //fa-ulはlist-style無効
     .no_ls {
