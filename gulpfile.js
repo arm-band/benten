@@ -7,9 +7,6 @@
 /* require
 *************************************** */
 const _         = require("./gulp/plugin");
-const dir       = require("./gulp/dir");
-const scssParam = require("./gulp/scssParam");
-const functions = require("./gulp/functions");
 
 /* requireDri Execution
 *************************************** */

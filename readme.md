@@ -8,47 +8,11 @@ Scss, ejs, gulp使用。
 
 ## How to use?
 
-使い方
-
-### Preparement
-
-事前に以下の準備が必要です。
-
-- node.js(7.2.1以上)
-    - npm: 以下のライブラリを使用します(主なもののみ記載)
-        - browser-sync: 2.18.13
-        - gulp: 4.0.0
-        - gulp-ejs: 3.0.1
-        - gulp-sass: 3.1.0
-        - gulp-autoprefixer: 4.1.0
-        - jquery: 3.2.1
-        - jquery.easing: 1.4.1
-        - reveal.js: 3.6.0
-        - font-awesome: 4.7.0
-
-### Using
-
 1. `git clone https://github.com/arm-band/benten.git`、またはBentenのGithubリポジトリからダウンロード
 2. `npm i -D`(または`npm install --save-dev`)
 3. `npm start`(`npm i -D`したファイルの再配置+初期設定画面生成・表示+初期設定完了後、`gulp init`実行)
     - このコマンドで生成したディレクトリやpackage-lock.json等は`npm run biwa`(琵琶)で削除できます
 4. 2回目以降は`npm test`でプレビューを実行
-
-## Functions1
-
-gulpで処理されるもの
-
-- ejs → htmlへの変換(`/src/ejs/*.ejs`→`/dist/*.html`)
-    - 自動生成
-- Scss → cssへの変換(`/src/scss/*.scss`→`/dist/css/*.css`)
-    - 自動生成
-        - minifyされたものを生成
-    - 自動でプレフィックスを付与
-        - 基本最新2バージョン
-        - `iOS >= 10.0`
-        - `Android >= 5.0`
-- 画像の圧縮(`/src/img/*`→`/dist/img/*`)
-    - 自動生成
 
 ## Settings
 
@@ -67,8 +31,10 @@ gulpで処理されるもの
 
 ## Release Notes
 
+- 2019/6/21 ver.4.1.4
+    - `npm`パッケージを整理
 - 2019/5/22 ver.4.1.3
-    - `npm`でダウンロードするパッケージを整理
+    - `npm`パッケージを整理
 - 2019/5/14 ver.4.1.2
     - Scss調整
 - 2018/12/12 ver.4.1.1
