@@ -6,16 +6,29 @@
  */
 /* require
 *************************************** */
-const _         = require("./gulp/plugin");
+const _         = require('./gulp/plugin');
+const browsersync = require('./gulp/tasks/browsersync');
+const ejs = require('./gulp/tasks/ejs');
+const md = require('./gulp/tasks/md');
+const imagemin = require('./gulp/tasks/imagemin');
+const scssTask = require('./gulp/tasks/sass');
+const scss = _.gulp.series(scssTask.yaml2sass, scssTask.sass);
 
-/* requireDri Execution
-*************************************** */
-_.requireDir("./tasks", { recurse: true });
+const taskServer = _.gulp.series(browsersync);
+exports.server = taskServer;
+//Scss
+exports.yaml2sass = _.gulp.series(scssTask.yaml2sass);
+exports.sass = _.gulp.series(scssTask.sass);
+exports.scss = scss;
+//ejs
+exports.ejs = _.gulp.parallel(ejs);
+//image
+exports.imagemin = _.gulp.parallel(imagemin);
 
-_.gulp.task("server", _.gulp.series("browsersync"));
-_.gulp.task("build", _.gulp.parallel(_.gulp.series("yaml2sass", "sass"), "ejs", "md", "imagemin"));
+const taskBuild = _.gulp.parallel(scss, ejs, md, imagemin);
+exports.build = taskBuild;
 
-//最初のタスク
-_.gulp.task("init", _.gulp.series("build", "server"));
+//ビルドなし
+exports.view = taskServer;
 //gulpのデフォルトタスクで諸々を動かす
-_.gulp.task("default", _.gulp.series("server"));
+exports.default = _.gulp.series(taskBuild, taskServer);

@@ -12,7 +12,7 @@ Scss, ejs, gulp使用。
 2. `npm i -D`(または`npm install --save-dev`)
 3. `npm start`(`npm i -D`したファイルの再配置+初期設定画面生成・表示+初期設定完了後、`gulp init`実行)
     - このコマンドで生成したディレクトリやpackage-lock.json等は`npm run biwa`(琵琶)で削除できます
-4. 2回目以降は`npm test`でプレビューを実行
+4. 2回目以降は`npm restart`でプレビューを実行
 
 ## Settings
 
@@ -31,6 +31,9 @@ Scss, ejs, gulp使用。
 
 ## Release Notes
 
+- 2019/10/29 ver.4.2.0
+    - `npm`パッケージを整理
+    - Gulpタスクを4.x系の書き方に修正
 - 2019/6/21 ver.4.1.4
     - `npm`パッケージを整理
 - 2019/5/22 ver.4.1.3

@@ -1,12 +1,12 @@
-const _         = require("../plugin");
-const dir       = require("../dir");
-const functions = require("../functions");
+const _         = require('../plugin');
+const dir       = require('../dir');
+const functions = require('../functions');
 
 //ejs
-_.gulp.task("ejs", () => {
+const ejs = () => {
     const config = functions.getConfig(dir.config.config);
     const commonVar = functions.getConfig(dir.config.commonvar);
-    const NLCflag = functions.getContents("slide.md"); //簡易改行コード判定。\r\nならばt, それ以外はf
+    const NLCflag = functions.getContents('slide.md'); //簡易改行コード判定。\r\nならばt, それ以外はf
     let newLineCode = "\\n";
     if(NLCflag) {
         newLineCode = "\\r\\n";
@@ -20,9 +20,11 @@ _.gulp.task("ejs", () => {
     )
     .pipe(_.plumber())
     .pipe(_.data((file) => {
-        return { "filename": file.path }
+        return { 'filename': file.path }
     }))
     .pipe(_.ejs({ config, commonVar, separator, separatorVertical }))
-    .pipe(_.rename({ extname: ".html" }))
+    .pipe(_.rename({ extname: '.html' }))
     .pipe(_.gulp.dest(dir.dist.html));
-});
+};
+
+module.exports = ejs;
