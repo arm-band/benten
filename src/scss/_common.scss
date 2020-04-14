@@ -5,7 +5,10 @@
 // Import                                        *
 //                                               *
 // ============================================= */
-@import "../../node_modules/font-awesome/scss/font-awesome"; //font-awesome 4.7.0
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome"; //以下4つFontAwesome
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../node_modules/@fortawesome/fontawesome-free/scss/brands";
 @import "util/var"; //変数
 @import "../../node_modules/brand-colors/dist/latest/scss/brand-colors.latest"; //ソーシャルメディアなどのブランドカラー
 @import "util/typo"; //ベンダープレフィックス等のMixinモジュール

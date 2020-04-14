@@ -42,7 +42,7 @@
     }
     //画像の調整
     #eyecatch {
-        width: 50rem;
+        width: 46rem;
         height: auto;
     }
     .profile_icon, .portforio {
@@ -59,6 +59,17 @@
         color: $main-color;
         &.fa-times {
             color: crimson;
+        }
+    }
+    .fa {
+        &-twitter {
+            color: $bc-twitter;
+        }
+        &-facebook {
+            color: $bc-facebook;
+        }
+        &-github {
+            color: $bc-github-8;
         }
     }
     //fa-ulはlist-style無効
