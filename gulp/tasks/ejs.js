@@ -16,9 +16,17 @@ const ejs = () => {
     const separatorVertical = `^${newLineCode}>>>${newLineCode}$`;
 
     return _.gulp.src(
-        [`${dir.src.ejs}/**/*.ejs`, `!${dir.src.ejs}/**/_*.ejs`] //_*.ejs(パーツ)はhtmlにしない
+        `${dir.src.ejs}/**/*.ejs`,
+        {
+            ignore: `${dir.src.ejs}/**/_*.ejs` //_*.ejs(パーツ)はhtmlにしない
+        }
     )
-    .pipe(_.plumber())
+    .pipe(_.plumber({
+        errorHandler: _.notify.onError({
+            message: 'Error: <%= error.message %>',
+            title: 'ejs'
+        })
+    }))
     .pipe(_.data((file) => {
         return { 'filename': file.path }
     }))

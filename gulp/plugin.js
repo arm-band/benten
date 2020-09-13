@@ -1,6 +1,5 @@
 module.exports = {
     gulp:  require('gulp'),
-    watch: require('gulp-watch'),
     plumber: require('gulp-plumber'),
     notify: require('gulp-notify'),
     yaml: require('yaml'),
@@ -15,5 +14,5 @@ module.exports = {
     ejs: require('gulp-ejs'),
     data: require('gulp-data'),
     fs: require('fs'),
-    browserSync: require('browser-sync')
+    browserSync: require('browser-sync').create()
 };

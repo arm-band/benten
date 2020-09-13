@@ -31,6 +31,10 @@ Scss, ejs, gulp使用。
 
 ## Release Notes
 
+- 2020/9/13 ver.4.2.2
+    - npmパッケージをアップデート
+    - `gulp-notify`のnotify追加
+    - `gulp-watch`を廃止して`gulp.watch`に切り替え
 - 2020/04/13 ver.4.2.1
     - `npm`パッケージを整理
 - 2019/10/29 ver.4.2.0
